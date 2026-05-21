@@ -22,6 +22,11 @@
       background:linear-gradient(135deg,#07111f,#0f2b4d,#133d6f);
       color:white;
       min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body.modal-open{
+      overflow:hidden;
     }
 
     header{
@@ -236,7 +241,7 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      font-size:40px;
+      font-size:42px;
     }
 
     .portfolio-content{
@@ -264,6 +269,8 @@
       color:white;
       font-weight:bold;
       transition:0.3s;
+      border:none;
+      cursor:pointer;
     }
 
     .portfolio-btn:hover{
@@ -308,6 +315,241 @@
       color:#bdbdbd;
     }
 
+    /* MODAL */
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.85);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      padding:30px;
+      z-index:9999;
+    }
+
+    .modal.active{
+      display:flex;
+    }
+
+    .modal-box{
+      width:100%;
+      max-width:1200px;
+      max-height:90vh;
+      overflow-y:auto;
+      background:#081626;
+      border-radius:30px;
+      position:relative;
+      animation:fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        transform:translateY(20px);
+        opacity:0;
+      }
+
+      to{
+        transform:translateY(0);
+        opacity:1;
+      }
+    }
+
+    .close-modal{
+      position:absolute;
+      top:20px;
+      right:20px;
+      width:45px;
+      height:45px;
+      border:none;
+      border-radius:50%;
+      background:#ff7b00;
+      color:white;
+      font-size:22px;
+      cursor:pointer;
+      z-index:10;
+    }
+
+    .demo-overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+    }
+
+    .demo-artesanal-hero,
+    .demo-clinica-hero,
+    .demo-runner-hero{
+      position:relative;
+      min-height:380px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:60px 8%;
+    }
+
+    .demo-artesanal-hero{
+      background:
+      linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
+      linear-gradient(135deg,#7b3f00,#d98b2b);
+    }
+
+    .demo-clinica-hero{
+      background:
+      linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
+      linear-gradient(135deg,#0d5c75,#27b5c7);
+    }
+
+    .demo-runner-hero{
+      background:
+      linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
+      linear-gradient(135deg,#101820,#ff7b00);
+    }
+
+    .demo-hero-content{
+      position:relative;
+      z-index:2;
+      max-width:850px;
+    }
+
+    .demo-tag{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(10px);
+      margin-bottom:25px;
+      font-size:14px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .demo-hero-content h2{
+      font-size:58px;
+      margin-bottom:25px;
+    }
+
+    .demo-hero-content p{
+      font-size:20px;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    .demo-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .demo-btn-primary,
+    .demo-btn-secondary{
+      padding:15px 28px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .demo-btn-primary{
+      background:white;
+      color:#111;
+    }
+
+    .demo-btn-secondary{
+      border:1px solid rgba(255,255,255,0.3);
+      color:white;
+      background:rgba(255,255,255,0.08);
+    }
+
+    .demo-btn-primary:hover,
+    .demo-btn-secondary:hover{
+      transform:translateY(-3px);
+    }
+
+    .demo-section{
+      padding:70px 8%;
+    }
+
+    .demo-title{
+      text-align:center;
+      font-size:38px;
+      margin-bottom:45px;
+    }
+
+    .shop-grid,
+    .clinic-grid,
+    .runner-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .shop-card,
+    .clinic-card,
+    .runner-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:30px;
+      backdrop-filter:blur(10px);
+      transition:0.3s;
+    }
+
+    .shop-card:hover,
+    .clinic-card:hover,
+    .runner-card:hover{
+      transform:translateY(-8px);
+      border-color:#ff9d00;
+    }
+
+    .shop-image{
+      height:120px;
+      border-radius:18px;
+      background:linear-gradient(135deg,#ff7b00,#ffae00);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:48px;
+      margin-bottom:20px;
+    }
+
+    .shop-card h4,
+    .clinic-card h4,
+    .runner-card h4{
+      color:#ff9d00;
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .shop-card p,
+    .clinic-card p,
+    .runner-card p{
+      color:#d0d0d0;
+      line-height:1.7;
+    }
+
+    .price{
+      display:inline-block;
+      margin-top:20px;
+      font-size:22px;
+      font-weight:bold;
+      color:#ffae00;
+    }
+
+    .runner-number{
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#ff7b00,#ffae00);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:28px;
+      font-weight:bold;
+      margin-bottom:20px;
+    }
+
     @media(max-width:768px){
 
       header{
@@ -330,6 +572,18 @@
 
       .hero p{
         font-size:18px;
+      }
+
+      .demo-hero-content h2{
+        font-size:38px;
+      }
+
+      .demo-hero-content p{
+        font-size:18px;
+      }
+
+      .demo-title{
+        font-size:30px;
       }
 
     }
@@ -393,32 +647,28 @@
       <div class="card">
         <h4>Desenvolvimento Web</h4>
         <p>
-          Criação de sites modernos, rápidos e responsivos
-          para empresas e projetos digitais.
+          Criação de sites modernos, rápidos e responsivos.
         </p>
       </div>
 
       <div class="card">
         <h4>Aplicativos & Sistemas</h4>
         <p>
-          Desenvolvimento de sistemas personalizados,
-          dashboards e plataformas digitais.
+          Desenvolvimento de plataformas digitais e sistemas personalizados.
         </p>
       </div>
 
       <div class="card">
         <h4>Marketing Digital</h4>
         <p>
-          Branding, identidade visual e fortalecimento
-          de presença online.
+          Branding, identidade visual e fortalecimento digital.
         </p>
       </div>
 
       <div class="card">
         <h4>Transmissões Esportivas</h4>
         <p>
-          Produção de conteúdo e cobertura esportiva
-          para eventos e campeonatos.
+          Produção esportiva e cobertura digital de eventos.
         </p>
       </div>
 
@@ -433,8 +683,8 @@
     </h3>
 
     <p>
-      Exemplos de experiências digitais, landing pages e plataformas
-      desenvolvidas pela Pixel Focus.
+      Experiências digitais, modelos modernos de sites
+      e apresentações interativas desenvolvidas pela Pixel Focus.
     </p>
 
     <div class="portfolio-grid">
@@ -450,8 +700,7 @@
           <h4>Portal Esportivo</h4>
 
           <p>
-            Plataforma esportiva com notícias,
-            transmissões, campeonatos e cobertura regional.
+            Plataforma esportiva completa com notícias e transmissões.
           </p>
 
           <a href="https://marquezbertin.github.io/esporte-sao-pedro/"
@@ -475,15 +724,13 @@
           <h4>E-commerce Artesanal</h4>
 
           <p>
-            Loja virtual moderna para produtos artesanais,
-            velas, sabonetes e presentes personalizados.
+            Loja digital moderna para produtos artesanais.
           </p>
 
-          <a href="https://marquezbertin.github.io/ere_teixeira_velasesaboaria/"
-             target="_blank"
-             class="portfolio-btn">
-             Visualizar
-          </a>
+          <button class="portfolio-btn"
+                  onclick="openModal('artesanalModal')">
+            Abrir Demo
+          </button>
 
         </div>
 
@@ -500,14 +747,13 @@
           <h4>Clínica Vitalis</h4>
 
           <p>
-            Modelo institucional moderno para clínicas,
-            fisioterapia e profissionais da saúde.
+            Modelo premium para clínicas e profissionais da saúde.
           </p>
 
-          <a href="#"
-             class="portfolio-btn">
-             Demo em Breve
-          </a>
+          <button class="portfolio-btn"
+                  onclick="openModal('clinicaModal')">
+            Abrir Demo
+          </button>
 
         </div>
 
@@ -524,62 +770,13 @@
           <h4>RunnerFlow</h4>
 
           <p>
-            Landing page para assessorias esportivas,
-            corrida de rua e acompanhamento de atletas.
+            Plataforma visual para assessorias esportivas.
           </p>
 
-          <a href="#"
-             class="portfolio-btn">
-             Demo em Breve
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="portfolio-card">
-
-        <div class="portfolio-image">
-          💼
-        </div>
-
-        <div class="portfolio-content">
-
-          <h4>Landing Empresarial</h4>
-
-          <p>
-            Modelo moderno para empresas,
-            agências e pequenos negócios digitais.
-          </p>
-
-          <a href="#"
-             class="portfolio-btn">
-             Demo em Breve
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="portfolio-card">
-
-        <div class="portfolio-image">
-          📊
-        </div>
-
-        <div class="portfolio-content">
-
-          <h4>Dashboard Analytics</h4>
-
-          <p>
-            Painel visual moderno para métricas,
-            relatórios e gerenciamento de informações.
-          </p>
-
-          <a href="#"
-             class="portfolio-btn">
-             Demo em Breve
-          </a>
+          <button class="portfolio-btn"
+                  onclick="openModal('runnerModal')">
+            Abrir Demo
+          </button>
 
         </div>
 
@@ -596,8 +793,7 @@
     </h3>
 
     <p>
-      Projetos digitais, soluções tecnológicas
-      e experiências modernas para o futuro.
+      Soluções digitais modernas para empresas e projetos.
     </p>
 
     <div class="contact-box">
@@ -614,6 +810,336 @@
     © 2026 Pixel Focus — Desenvolvendo ideias para o futuro.
 
   </footer>
+
+  <!-- MODAL ARTESANAL -->
+
+  <div class="modal" id="artesanalModal">
+
+    <div class="modal-box">
+
+      <button class="close-modal"
+              onclick="closeModal('artesanalModal')">
+        ✕
+      </button>
+
+      <div class="demo-artesanal-hero">
+
+        <div class="demo-overlay"></div>
+
+        <div class="demo-hero-content">
+
+          <span class="demo-tag">
+            Loja Artesanal Premium
+          </span>
+
+          <h2>
+            Aurora Velas & Saboaria
+          </h2>
+
+          <p>
+            Experiência digital elegante para marcas artesanais,
+            velas aromáticas e presentes personalizados.
+          </p>
+
+          <div class="demo-buttons">
+
+            <a href="#" class="demo-btn-primary">
+              Comprar Agora
+            </a>
+
+            <a href="#" class="demo-btn-secondary">
+              Catálogo
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="demo-section">
+
+        <h3 class="demo-title">
+          Produtos em Destaque
+        </h3>
+
+        <div class="shop-grid">
+
+          <div class="shop-card">
+
+            <div class="shop-image">
+              🕯️
+            </div>
+
+            <h4>Velas Aromáticas</h4>
+
+            <p>
+              Coleção premium com fragrâncias relaxantes.
+            </p>
+
+            <span class="price">
+              R$ 49,90
+            </span>
+
+          </div>
+
+          <div class="shop-card">
+
+            <div class="shop-image">
+              🧼
+            </div>
+
+            <h4>Sabonetes Naturais</h4>
+
+            <p>
+              Produtos artesanais feitos manualmente.
+            </p>
+
+            <span class="price">
+              R$ 24,90
+            </span>
+
+          </div>
+
+          <div class="shop-card">
+
+            <div class="shop-image">
+              🎁
+            </div>
+
+            <h4>Kits Presente</h4>
+
+            <p>
+              Combinações especiais para presentes.
+            </p>
+
+            <span class="price">
+              R$ 89,90
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL CLINICA -->
+
+  <div class="modal" id="clinicaModal">
+
+    <div class="modal-box">
+
+      <button class="close-modal"
+              onclick="closeModal('clinicaModal')">
+        ✕
+      </button>
+
+      <div class="demo-clinica-hero">
+
+        <div class="demo-overlay"></div>
+
+        <div class="demo-hero-content">
+
+          <span class="demo-tag">
+            Clínica & Saúde
+          </span>
+
+          <h2>
+            Clínica Vitalis
+          </h2>
+
+          <p>
+            Modelo institucional moderno para clínicas e saúde.
+          </p>
+
+          <div class="demo-buttons">
+
+            <a href="#" class="demo-btn-primary">
+              Agendar Consulta
+            </a>
+
+            <a href="#" class="demo-btn-secondary">
+              Especialidades
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="demo-section">
+
+        <h3 class="demo-title">
+          Especialidades
+        </h3>
+
+        <div class="clinic-grid">
+
+          <div class="clinic-card">
+            <h4>🏥 Fisioterapia</h4>
+            <p>
+              Atendimento especializado em recuperação física.
+            </p>
+          </div>
+
+          <div class="clinic-card">
+            <h4>🥗 Nutrição</h4>
+            <p>
+              Programas alimentares personalizados.
+            </p>
+          </div>
+
+          <div class="clinic-card">
+            <h4>🧠 Psicologia</h4>
+            <p>
+              Acompanhamento emocional e qualidade de vida.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL RUNNER -->
+
+  <div class="modal" id="runnerModal">
+
+    <div class="modal-box">
+
+      <button class="close-modal"
+              onclick="closeModal('runnerModal')">
+        ✕
+      </button>
+
+      <div class="demo-runner-hero">
+
+        <div class="demo-overlay"></div>
+
+        <div class="demo-hero-content">
+
+          <span class="demo-tag">
+            Assessoria Esportiva
+          </span>
+
+          <h2>
+            RunnerFlow Performance
+          </h2>
+
+          <p>
+            Plataforma moderna para corrida de rua e atletas.
+          </p>
+
+          <div class="demo-buttons">
+
+            <a href="#" class="demo-btn-primary">
+              Iniciar Treinos
+            </a>
+
+            <a href="#" class="demo-btn-secondary">
+              Ver Planos
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="demo-section">
+
+        <h3 class="demo-title">
+          Recursos da Plataforma
+        </h3>
+
+        <div class="runner-grid">
+
+          <div class="runner-card">
+
+            <div class="runner-number">
+              5K
+            </div>
+
+            <h4>Treinos</h4>
+
+            <p>
+              Planilhas adaptadas ao nível do atleta.
+            </p>
+
+          </div>
+
+          <div class="runner-card">
+
+            <div class="runner-number">
+              BPM
+            </div>
+
+            <h4>Métricas</h4>
+
+            <p>
+              Controle de pace e evolução esportiva.
+            </p>
+
+          </div>
+
+          <div class="runner-card">
+
+            <div class="runner-number">
+              🏅
+            </div>
+
+            <h4>Eventos</h4>
+
+            <p>
+              Calendário integrado de provas e corridas.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function openModal(id){
+      document.getElementById(id).classList.add('active');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal(id){
+      document.getElementById(id).classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+
+    window.onclick = function(event){
+
+      const modals = document.querySelectorAll('.modal');
+
+      modals.forEach(modal => {
+
+        if(event.target === modal){
+          modal.classList.remove('active');
+          document.body.classList.remove('modal-open');
+        }
+
+      });
+
+    }
+
+  </script>
 
 </body>
 
